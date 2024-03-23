@@ -9,10 +9,10 @@ const propertySchema = new mongoose.Schema({
         path: String,
         description: String
       }],
-    Type: schema.Types.Objectid, ref: "category",
-    Type: schema.Types.Objectid, ref: "location",
-    Type: schema.Types.Objectid, ref: "benefits",
-    Type: schema.Types.Objectid, ref: "ratings"
+    Type: schema.Types.Objectid, ref:"category",
+    Type: schema.Types.Objectid, ref:"location",
+    Type: schema.Types.Objectid, ref:"benefits",
+    Type: schema.Types.Objectid, ref:"ratings"
 });
   
   module.exports = mongoose.model('Property', propertySchema);
