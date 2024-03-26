@@ -1,9 +1,16 @@
 import mongoose from "mongoose";
+
 const { Schema, model } = mongoose;
 
-const typeRoomSchema = new mongoose.Schema({
-  name: String,
-  description: String
+const typeRoomSchema = new Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
 });
 
-module.exports = mongoose.model('TypeRoom', typeRoomSchema);
+export const TypeRoom = model("TypeRoom", typeRoomSchema);

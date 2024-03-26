@@ -1,18 +1,44 @@
 import mongoose from "mongoose";
+
 const { Schema, model } = mongoose;
 
-const propertySchema = new mongoose.Schema({
-    name: String,
+const propertySchema = new Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+  images: [{
+    path: String,
     description: String,
-    price: Number,
-    images: [{
-        path: String,
-        description: String
-      }],
-    Type: schema.Types.Objectid, ref:"category",
-    Type: schema.Types.Objectid, ref:"location",
-    Type: schema.Types.Objectid, ref:"benefits",
-    Type: schema.Types.Objectid, ref:"ratings"
+  }],
+  category: {
+    type: Schema.Types.ObjectId,
+    ref: "Category",
+    required: true,
+  },
+  location: {
+    type: Schema.Types.ObjectId,
+    ref: "Location",
+    required: true,
+  },
+  benefits: {
+    type: Schema.Types.ObjectId,
+    ref: "Benefits",
+    required: true,
+  },
+  ratings: {
+    type: Schema.Types.ObjectId,
+    ref: "Ratings",
+    required: true,
+  },
 });
-  
-  module.exports = mongoose.model('Property', propertySchema);
+
+export const Property = model("Property", propertySchema);
